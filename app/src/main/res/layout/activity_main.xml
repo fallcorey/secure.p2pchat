@@ -5,6 +5,16 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Header -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Secure P2P Chat"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
     <!-- Status Section -->
     <TextView
         android:layout_width="match_parent"
@@ -47,6 +57,16 @@
 
     </LinearLayout>
 
+    <!-- Connection Button -->
+    <Button
+        android:id="@+id/connectionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Manage Connections"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@color/white"
+        android:layout_marginBottom="16dp" />
+
     <!-- Chat Display -->
     <TextView
         android:layout_width="match_parent"
@@ -67,7 +87,7 @@
             android:layout_height="wrap_content"
             android:background="#f5f5f5"
             android:padding="12dp"
-            android:text="Welcome to Secure P2P Chat!\n\n"
+            android:text="Welcome to Secure P2P Chat!\n\n1. Go to 'Manage Connections'\n2. Enable discovery\n3. Connect to a device\n4. Start chatting securely!\n\n"
             android:textSize="16sp" />
 
     </ScrollView>
