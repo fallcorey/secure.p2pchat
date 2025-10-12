@@ -29,5 +29,5 @@ jobs:
     - name: List available tasks
       run: ./gradlew tasks --all
       
-    - name: Try to build
-      run: ./gradlew build
+    - name: Build with Gradle
+      run: ./gradlew :app:assembleDebug
