@@ -1,5 +1,6 @@
 package com.secure.p2pchat
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var statusText: TextView
     private lateinit var discoveryToggle: ToggleButton
     private lateinit var deviceNameInput: EditText
+    private lateinit var connectionButton: Button
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         statusText = findViewById(R.id.statusText)
         discoveryToggle = findViewById(R.id.discoveryToggle)
         deviceNameInput = findViewById(R.id.deviceNameInput)
+        connectionButton = findViewById(R.id.connectionButton)
         
         deviceNameInput.setText(p2pManager.getDeviceName())
     }
@@ -67,6 +70,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        
+        connectionButton.setOnClickListener {
+            val intent = Intent(this, ConnectionActivity::class.java)
+            startActivity(intent)
+        }
     }
     
     private fun displayMessage(message: String) {
@@ -82,6 +90,11 @@ class MainActivity : AppCompatActivity() {
     
     private fun updateStatus() {
         statusText.text = p2pManager.getConnectionStatus()
+    }
+    
+    fun openConnectionScreen(view: android.view.View) {
+        val intent = Intent(this, ConnectionActivity::class.java)
+        startActivity(intent)
     }
     
     override fun onDestroy() {
