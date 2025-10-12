@@ -54,7 +54,7 @@ dependencies {
     
     // Security
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
-
+    
     // WebRTC for P2P communication
     implementation("org.webrtc:google-webrtc:1.0.32006")
     
@@ -62,4 +62,12 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+}
+
+repositories {
+    google()
+    mavenCentral()
+    maven {
+        url = uri("https://google.bintray.com/webrtc")
+    }
 }
