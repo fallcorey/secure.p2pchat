@@ -55,8 +55,8 @@ dependencies {
     // Security
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
     
-    // WebRTC for P2P communication - используем проверенную версию
-    implementation("io.github.webrtc-sdk:android:104.5112.16")
+    // WebRTC for P2P communication - используем официальную версию
+    implementation("org.webrtc:google-webrtc:1.0.32006")
     
     // Testing
     testImplementation("junit:junit:4.13.2")
