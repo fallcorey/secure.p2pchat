@@ -14,7 +14,7 @@ class FileEncryptionManager(private val context: Context) {
     
     companion object {
         private const val ALGORITHM = "AES"
-        private const TRANSFORMATION = "AES/GCM/NoPadding"
+        private const val TRANSFORMATION = "AES/GCM/NoPadding"
         private const val KEY_SIZE = 256
         private const val IV_LENGTH = 12
         private const val TAG_LENGTH = 128
