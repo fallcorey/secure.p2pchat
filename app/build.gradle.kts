@@ -54,6 +54,9 @@ dependencies {
     
     // Security
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
+
+    // WebRTC for P2P communication
+    implementation("org.webrtc:google-webrtc:1.0.32006")
     
     // Testing
     testImplementation("junit:junit:4.13.2")
