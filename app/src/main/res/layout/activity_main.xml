@@ -5,17 +5,74 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Status Section -->
     <TextView
-        android:id="@+id/chatDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Connection Status"
+        android:textStyle="bold"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/statusText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="#e8f5e8"
+        android:padding="8dp"
+        android:text="Not connected"
+        android:textColor="#2e7d32" />
+
+    <!-- Device Settings -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/deviceNameInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Device name"
+            android:inputType="text" />
+
+        <ToggleButton
+            android:id="@+id/discoveryToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="Discovery ON"
+            android:textOff="Discovery OFF" />
+
+    </LinearLayout>
+
+    <!-- Chat Display -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chat Messages"
+        android:textStyle="bold"
+        android:textSize="14sp" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#f0f0f0"
-        android:padding="8dp"
-        android:scrollbars="vertical"
-        android:text="Welcome to Secure P2P Chat!\n\n"
-        android:textSize="16sp" />
+        android:layout_marginBottom="16dp">
 
+        <TextView
+            android:id="@+id/chatDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f5f5f5"
+            android:padding="12dp"
+            android:text="Welcome to Secure P2P Chat!\n\n"
+            android:textSize="16sp" />
+
+    </ScrollView>
+
+    <!-- Message Input -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +83,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Type your message..."
+            android:hint="Type your secure message..."
             android:inputType="text" />
 
         <Button
