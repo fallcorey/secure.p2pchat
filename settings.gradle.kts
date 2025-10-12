@@ -10,9 +10,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven {
-            url = uri("https://google.bintray.com/webrtc")
-        }
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
