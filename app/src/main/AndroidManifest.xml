@@ -52,7 +52,7 @@
         
         <!-- Connection Activity -->
         <activity
-            android:name=".ui.ConnectionActivity"
+            android:name=".ConnectionActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         
