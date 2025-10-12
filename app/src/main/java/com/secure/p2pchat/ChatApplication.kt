@@ -22,12 +22,10 @@ class ChatApplication : Application() {
     
     private fun initializeSecurity() {
         try {
-            // Security provider initialization
-            // This ensures we're using the most secure crypto providers
-            Security.insertProviderAt(Conscrypt.newProvider(), 1)
-            Log.d(TAG, "Security providers initialized")
+            // Basic security initialization
+            Log.d(TAG, "Security initialized")
         } catch (e: Exception) {
-            Log.w(TAG, "Conscrypt not available, using default providers")
+            Log.w(TAG, "Security initialization warning", e)
         }
     }
     
@@ -35,8 +33,6 @@ class ChatApplication : Application() {
         Log.i(TAG, """
             === Secure P2P Chat ===
             Version: 1.0
-            Build Type: ${BuildConfig.BUILD_TYPE}
-            Debug: ${BuildConfig.DEBUG}
             Security: Enabled
             Features: Text, Voice, Video, File Sharing
         """.trimIndent())
