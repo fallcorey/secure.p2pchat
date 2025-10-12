@@ -50,13 +50,19 @@
             </intent-filter>
         </activity>
         
+        <!-- Connection Activity -->
+        <activity
+            android:name=".ui.ConnectionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
         <!-- Chat Service -->
         <service
             android:name=".ChatService"
             android:enabled="true"
             android:exported="false" />
             
-        <!-- File Provider for secure file sharing -->
+        <!-- File Provider -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.secure.p2pchat.fileprovider"
