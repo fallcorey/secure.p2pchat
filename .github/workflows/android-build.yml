@@ -26,8 +26,29 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
       
-    - name: List available tasks
-      run: ./gradlew tasks --all
-      
-    - name: Build with Gradle
+    - name: Build Debug APK
       run: ./gradlew :app:assembleDebug
+      
+    - name: Build Release APK
+      run: ./gradlew :app:assembleRelease
+      
+    - name: Upload Debug APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: secure-p2pchat-debug
+        path: app/build/outputs/apk/debug/app-debug.apk
+        retention-days: 7
+        
+    - name: Upload Release APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: secure-p2pchat-release
+        path: app/build/outputs/apk/release/app-release.apk
+        retention-days: 7
+        
+    - name: Verify APK Creation
+      run: |
+        echo "=== Checking APK Files ==="
+        find app/build/outputs/apk/ -name "*.apk" -type f | while read file; do
+          echo "✅ Found: $file ($(du -h "$file" | cut -f1))"
+        done
