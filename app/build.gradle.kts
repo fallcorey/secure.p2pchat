@@ -55,8 +55,8 @@ dependencies {
     // Security
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
     
-    // Networking
-    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    // Material Design 3
+    implementation("androidx.compose.material3:material3:1.1.2")
     
     // Testing
     testImplementation("junit:junit:4.13.2")
