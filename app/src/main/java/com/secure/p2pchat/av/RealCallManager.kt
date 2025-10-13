@@ -9,7 +9,6 @@ import android.media.AudioTrack
 import android.media.MediaRecorder
 import android.util.Log
 import com.secure.p2pchat.security.KeyStorage
-import java.io.ByteArrayOutputStream
 import java.util.*
 import java.util.concurrent.Executors
 import javax.crypto.Cipher
@@ -28,14 +27,17 @@ class RealCallManager(private val context: Context) {
     private var currentCallId: String? = null
     private var callStartTime: Long = 0
     
-    // Audio configuration
     companion object {
         private const val TAG = "RealCallManager"
         private const val SAMPLE_RATE = 44100
         private const val CHANNEL_CONFIG = AudioFormat.CHANNEL_IN_MONO
         private const val AUDIO_FORMAT = AudioFormat.ENCODING_PCM_16BIT
-        private const val BUFFER_SIZE = AudioRecord.getMinBufferSize(SAMPLE_RATE, CHANNEL_CONFIG, AUDIO_FORMAT)
         private const val AUDIO_CHUNK_SIZE = 1024
+        
+        // Вычисляем BUFFER_SIZE как функцию
+        fun getBufferSize(): Int {
+            return AudioRecord.getMinBufferSize(SAMPLE_RATE, CHANNEL_CONFIG, AUDIO_FORMAT)
+        }
     }
     
     interface CallListener {
@@ -115,13 +117,15 @@ class RealCallManager(private val context: Context) {
     // === Audio Management ===
     private fun initializeAudio() {
         try {
+            val bufferSize = getBufferSize()
+            
             // Initialize AudioRecord for recording
             audioRecord = AudioRecord(
                 MediaRecorder.AudioSource.MIC,
                 SAMPLE_RATE,
                 AudioFormat.CHANNEL_IN_MONO,
                 AUDIO_FORMAT,
-                BUFFER_SIZE * 2
+                bufferSize * 2
             )
             
             // Initialize AudioTrack for playback
@@ -139,12 +143,12 @@ class RealCallManager(private val context: Context) {
             audioTrack = AudioTrack(
                 audioAttributes,
                 audioFormat,
-                BUFFER_SIZE * 2,
+                bufferSize * 2,
                 AudioTrack.MODE_STREAM,
                 AudioManager.AUDIO_SESSION_ID_GENERATE
             )
             
-            Log.d(TAG, "Audio system initialized")
+            Log.d(TAG, "Audio system initialized with buffer size: $bufferSize")
         } catch (e: Exception) {
             Log.e(TAG, "Audio initialization failed", e)
             throw e
