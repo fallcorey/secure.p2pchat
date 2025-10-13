@@ -1,32 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.SecureP2PChat" parent="Theme.Material3.DayNight">
+    <style name="Theme.SecureP2PChat" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
+        
+        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
+        
+        <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-    </style>
-
-    <style name="Theme.SecureP2PChat" parent="Base.Theme.SecureP2PChat">
-        <item name="materialButtonStyle">@style/Widget.SecureP2PChat.Button</item>
-        <item name="cardViewStyle">@style/Widget.SecureP2PChat.CardView</item>
-    </style>
-
-    <!-- Custom Button Style -->
-    <style name="Widget.SecureP2PChat.Button" parent="Widget.Material3.Button">
-        <item name="android:backgroundTint">@color/purple_500</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="cornerRadius">12dp</item>
-    </style>
-
-    <!-- Custom Card Style -->
-    <style name="Widget.SecureP2PChat.CardView" parent="Widget.Material3.CardView">
-        <item name="cardCornerRadius">16dp</item>
-        <item name="cardElevation">4dp</item>
-        <item name="strokeColor">@color/purple_200</item>
-        <item name="strokeWidth">1dp</item>
+        
+        <!-- Customize your theme here. -->
     </style>
 </resources>
